@@ -1,17 +1,19 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import SearchResults from "./pages/SearchResults";
-import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/search/:query" element={<SearchResults />} />
-      </Routes>
+      <div className="font-poppins bg-white min-h-screen">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/search/:query" element={<SearchResults />} />
+        </Routes>
+      </div>
     </Router>
   );
 }

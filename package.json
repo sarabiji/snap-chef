@@ -2,6 +2,7 @@
   "name": "snap-chef",
   "version": "0.1.0",
   "private": true,
+  "description": "A simple React application for managing recipes and cooking tasks.",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -36,5 +37,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-react": "^7.28.0",
+    "postcss": "^8.5.6",
+    "prettier": "^2.5.1",
+    "tailwindcss": "^4.1.11"
   }
 }
