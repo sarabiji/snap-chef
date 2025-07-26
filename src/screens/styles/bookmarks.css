@@ -1,0 +1,208 @@
+/* src/screens/styles/bookmarks.css */
+
+.bookmarks-page-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows it to expand within App.js layout */
+    padding-bottom: 70px; /* Space for the fixed bottom nav */
+}
+
+.bookmarks-page-container .app-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0E0A57; /* Deep Blue */
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.bookmarks-page-container .app-bar h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.bookmarks-page-container .app-bar .refresh-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bookmarks-page-container .app-bar .refresh-button img {
+    width: 24px;
+    height: 24px;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%); /* White color for icon */
+}
+
+.bookmarks-main-content {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto; /* Allows scrolling if content overflows */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.bookmark-date-group {
+    margin-bottom: 25px;
+}
+
+.bookmark-date-group h2 {
+    font-size: 20px;
+    color: #0E0A57; /* Deep Blue */
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.bookmarks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive grid */
+    gap: 15px;
+}
+
+.recipe-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensure cards in a grid have consistent height */
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.recipe-card-image-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 75%; /* 4:3 Aspect Ratio (height is 75% of width) */
+    overflow: hidden;
+    background-color: #e0e0e0; /* Placeholder background */
+}
+
+.recipe-card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers the area without distortion */
+}
+
+.image-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    color: #aaa;
+    font-size: 14px;
+}
+
+.image-placeholder .icon {
+    font-size: 40px; /* Adjust size of the unicode camera icon */
+    margin-bottom: 5px;
+}
+
+.gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.4) 100%);
+}
+
+.delete-bookmark-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10; /* Ensure it's above the image */
+}
+
+.delete-bookmark-button img {
+    width: 20px;
+    height: 20px;
+    filter: invert(39%) sepia(87%) saturate(2250%) hue-rotate(338deg) brightness(97%) contrast(92%); /* Salmon color for filled bookmark */
+}
+
+
+.recipe-card-details {
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows details section to grow if title wraps */
+    justify-content: space-between; /* Pushes time to bottom if space allows */
+}
+
+.recipe-card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    -webkit-box-orient: vertical;
+}
+
+.recipe-card-time {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #666;
+    margin-top: auto; /* Push to bottom if details grow */
+}
+
+.recipe-card-time img {
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+    filter: invert(40%) sepia(0%) saturate(0%) hue-rotate(244deg) brightness(96%) contrast(85%); /* Grey-ish color for timer */
+}
+
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+    .bookmarks-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 10px;
+    }
+
+    .recipe-card-title {
+        font-size: 15px;
+    }
+
+    .recipe-card-time {
+        font-size: 13px;
+    }
+}

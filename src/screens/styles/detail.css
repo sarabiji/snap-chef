@@ -1,0 +1,189 @@
+/* src/screens/styles/detail.css */
+
+.detail-screen-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows it to expand within App.js layout */
+    padding-bottom: 70px; /* Space for the fixed bottom nav */
+    background-color: #f8f8f8;
+}
+
+.header-image-container {
+    position: relative;
+    width: 100%;
+    height: 250px; /* Fixed height for the header image */
+    overflow: hidden;
+}
+
+.recipe-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 50%);
+}
+
+.action-button {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.action-button img {
+    width: 24px;
+    height: 24px;
+    filter: invert(100%); /* Make icons white */
+}
+
+.back-button {
+    top: 15px;
+    left: 15px;
+}
+
+.share-button {
+    top: 15px;
+    right: 65px; /* Positioned next to bookmark */
+}
+
+.bookmark-button {
+    top: 15px;
+    right: 15px;
+}
+
+.bookmark-spinner {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+/* Using the spinner keyframes defined in index.css or global CSS */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+.content-container {
+    background-color: white;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    margin-top: -20px; /* Pulls it up over the image slightly */
+    padding: 25px 20px;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.recipe-info h1 {
+    font-size: 28px;
+    color: #0E0A57; /* Deep Blue */
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.cooking-time {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.cooking-time img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    filter: invert(40%) sepia(0%) saturate(0%) hue-rotate(244deg) brightness(96%) contrast(85%); /* Grey-ish color for timer */
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.section h2 {
+    font-size: 22px;
+    color: #0E0A57;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.ingredients-list, .instructions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ingredients-list li, .instructions-list li {
+    background-color: #f9f9f9;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.instructions-list li {
+    counter-increment: step-counter; /* For ordered list numbers */
+    position: relative;
+    padding-left: 35px; /* Space for the number */
+}
+
+.instructions-list li::before {
+    content: counter(step-counter) ".";
+    position: absolute;
+    left: 10px;
+    font-weight: bold;
+    color: #F3756D; /* Salmon */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .header-image-container {
+        height: 200px;
+    }
+    .recipe-info h1 {
+        font-size: 24px;
+    }
+    .section h2 {
+        font-size: 20px;
+    }
+    .ingredients-list li, .instructions-list li {
+        font-size: 15px;
+        padding: 10px 12px;
+    }
+    .instructions-list li {
+        padding-left: 30px;
+    }
+    .action-button {
+        width: 36px;
+        height: 36px;
+    }
+    .action-button img {
+        width: 20px;
+        height: 20px;
+    }
+}

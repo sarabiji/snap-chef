@@ -1,0 +1,100 @@
+/* src/screens/styles/categories.css */
+
+.categories-page-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-bottom: 70px; /* Space for the fixed bottom nav */
+}
+
+.categories-page-container .app-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0E0A57; /* Deep Blue */
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.categories-page-container .app-bar h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.categories-list {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto; /* Allows scrolling if content overflows */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.category-group {
+    margin-bottom: 30px;
+}
+
+.category-group-title {
+    font-size: 22px;
+    color: #0E0A57; /* Deep Blue */
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 8px;
+}
+
+.category-items-scroll {
+    display: flex;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    padding-bottom: 10px; /* Space for scrollbar if present */
+    gap: 15px; /* Space between cards */
+}
+
+/* Hide scrollbar for aesthetic purposes (optional) */
+.category-items-scroll::-webkit-scrollbar {
+    display: none;
+}
+.category-items-scroll {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+
+.category-card {
+    flex: 0 0 auto; /* Do not grow, do not shrink, fixed basis */
+    width: 140px; /* Fixed width for each card */
+    height: 100px; /* Fixed height */
+    background: linear-gradient(135deg, var(--color-start, #6F81C1), var(--color-end, #5C80DA));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .category-group-title {
+        font-size: 20px;
+    }
+    .category-card {
+        width: 120px;
+        height: 90px;
+        font-size: 14px;
+    }
+}
